@@ -25,13 +25,14 @@ jobs:
            
       - name: Make regular book files
         run: |
-           'gitbook pdf ./ ~/juice-shop.pdf'
-           'gitbook mobi ./ ~/juice-shop.mobi'
-           'gitbook epub ./ ~/juice-shop.epub'
+           'mkdir ~/book'
+           'gitbook pdf ./ ~/book/juice-shop.pdf'
+           'gitbook mobi ./ ~/book/juice-shop.mobi'
+           'gitbook epub ./ ~/book/juice-shop.epub'
       
       - name: Archive book files
         uses: actions/upload-artifact@v3
         with:
           name: book
           path: |
-            ~/*.*
+            ~/book/*
