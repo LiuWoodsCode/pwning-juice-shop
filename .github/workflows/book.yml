@@ -1,0 +1,54 @@
+name: Make book files
+on: [push]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install choco
+        run: |
+          Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+
+      - name: Install npm
+        run: |
+          choco install nodejs -y
+          refreshenv
+
+      - name: Verify installations
+        run: |
+          choco --version
+          npm --version
+          
+      - name: Install dependencies 
+        run: |
+           'npm install graceful-fs@latest --save'
+           'npm i -g gitbook-cli'
+           'choco install calibre --version 5.44.0'
+           'refreshenv'
+           'npm i -g svgexport@0.4.2'
+           
+      - name: Install GitBook
+        run: |
+           'if exist _book rd /Q /S _book'
+           'gitbook install'
+           'gitbook build'
+           
+      - name: Make regular book files
+        run: |
+           'gitbook pdf ./ ./juice-shop.pdf'
+           'gitbook mobi ./ ./juice-shop.mobi'
+           'gitbook epub ./ ./juice-shop.epub'
+      
+      - name: Archive book files
+        uses: actions/upload-artifact@v3
+        with:
+          name: book
+          path: |
+            *.pdf
+            *.epub
+            *.mobi
+            _book
