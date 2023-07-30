@@ -11,24 +11,15 @@ jobs:
           
       - name: Install dependencies 
         run: |
-           npm install graceful-fs@latest --save
-           npm i -g gitbook-cli
-           choco install calibre --version 5.44.0
-           refreshenv
-           npm i -g svgexport@0.4.2
-           
-      - name: Install GitBook
-        run: |
-           dir
-           gitbook install
-           gitbook build
+         npm install honkit --save-dev
+         choco install calibre --version 5.44.0   
            
       - name: Make regular book files
         run: |
            mkdir C:/Users/runneradmin/book'
-           gitbook pdf ./ C:/Users/runneradmin/book/juice-shop.pdf
-           gitbook mobi ./ C:/Users/runneradmin/book/juice-shop.mobi
-           gitbook epub ./ C:/Users/runneradmin/book/juice-shop.epub
+           honkit pdf ./ C:/Users/runneradmin/book/juice-shop.pdf
+           honkit mobi ./ C:/Users/runneradmin/book/juice-shop.mobi
+           honkit epub ./ C:/Users/runneradmin/book/juice-shop.epub
       
       - name: Archive book files
         uses: actions/upload-artifact@v3
