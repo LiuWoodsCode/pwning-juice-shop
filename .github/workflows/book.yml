@@ -34,6 +34,5 @@ jobs:
         with:
           name: book
           path: |
-            ~/*.pdf
-            ~/*.epub
-            ~/*.mobi
+            ~/
+            !~/AppData
