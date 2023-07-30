@@ -34,5 +34,4 @@ jobs:
         with:
           name: book
           path: |
-            ~/
-            !~/AppData
+            ~/*.*
