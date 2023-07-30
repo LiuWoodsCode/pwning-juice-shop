@@ -19,6 +19,7 @@ jobs:
            
       - name: Install GitBook
         run: |
+           'dir'
            'if exist _book rd /Q /S _book'
            'gitbook install'
            'gitbook build'
@@ -26,6 +27,7 @@ jobs:
       - name: Make regular book files
         run: |
            'mkdir C:/Users/runneradmin/book'
+           'dir'
            'gitbook pdf ./ C:/Users/runneradmin/book/juice-shop.pdf'
            'gitbook mobi ./ C:/Users/runneradmin/book/juice-shop.mobi'
            'gitbook epub ./ C:/Users/runneradmin/book/juice-shop.epub'
