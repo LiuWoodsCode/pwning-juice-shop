@@ -8,20 +8,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-
-      - name: Install choco
-        run: |
-          Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-
-      - name: Install npm
-        run: |
-          choco install nodejs -y
-          refreshenv
-
-      - name: Verify installations
-        run: |
-          choco --version
-          npm --version
           
       - name: Install dependencies 
         run: |
