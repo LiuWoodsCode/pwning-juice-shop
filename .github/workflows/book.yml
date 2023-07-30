@@ -26,13 +26,13 @@ jobs:
       - name: Make regular book files
         run: |
            'mkdir ~/book'
-           'gitbook pdf ./ ~/book/juice-shop.pdf'
-           'gitbook mobi ./ ~/book/juice-shop.mobi'
-           'gitbook epub ./ ~/book/juice-shop.epub'
+           'gitbook pdf ./ C:/Users/runneradmin/book/juice-shop.pdf'
+           'gitbook mobi ./ C:/Users/runneradmin/book/juice-shop.mobi'
+           'gitbook epub ./ C:/Users/runneradmin/book/juice-shop.epub'
       
       - name: Archive book files
         uses: actions/upload-artifact@v3
         with:
           name: book
           path: |
-            ~/book
+            C:/Users/runneradmin/book/
