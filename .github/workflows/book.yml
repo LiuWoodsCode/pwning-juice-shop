@@ -34,7 +34,4 @@ jobs:
         with:
           name: book
           path: |
-            *.pdf
-            *.epub
-            *.mobi
-            _book
+            *
