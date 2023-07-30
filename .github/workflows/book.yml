@@ -16,7 +16,7 @@ jobs:
            
       - name: Make regular book files
         run: |
-           mkdir C:/Users/runneradmin/book'
+           mkdir C:/Users/runneradmin/book
            honkit pdf ./ C:/Users/runneradmin/book/juice-shop.pdf
            honkit mobi ./ C:/Users/runneradmin/book/juice-shop.mobi
            honkit epub ./ C:/Users/runneradmin/book/juice-shop.epub
